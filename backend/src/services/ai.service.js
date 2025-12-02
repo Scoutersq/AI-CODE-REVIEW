@@ -81,7 +81,6 @@ const model = genAI.getGenerativeModel({
     `
 });
 
-
 async function generateContent(prompt) {
     const result = await model.generateContent(prompt);
 
