@@ -16,13 +16,14 @@ function App() {
 
 const [review, setReview] = useState(``)
 
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000'
+
   useEffect(() => {
     prism.highlightAll()
   }, [])
 
   async function reviewCode(){
-
-   const response = await axios.post('http://localhost:3000/ai/get-review', { code })
+   const response = await axios.post(`${API_BASE_URL}/ai/get-review`, { code })
 
    setReview(response.data)
 
