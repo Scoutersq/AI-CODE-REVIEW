@@ -5,7 +5,15 @@ const cors = require('cors');
 
 const app = express()
 
-app.use(cors())
+const allowedOrigins = [
+    process.env.FRONTEND_ORIGIN || 'http://localhost:5173',
+    'https://ai-code-review-caig.vercel.app'
+]
+
+app.use(cors({
+    origin: allowedOrigins,
+    methods: ['GET','POST','OPTIONS'],
+}))
 
 app.use(express.json())
 
